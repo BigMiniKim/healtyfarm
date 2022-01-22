@@ -10,10 +10,10 @@ public interface UserMapper {
 	
 	public MemberVO getMember(String id);	
 	
-	@Insert("insert into member(id,password,resident_registration_number, name, email, phone_number, address, enabled) values(#{id},#{password},#{resident_registration_number},#{name}, #{enabled}, #{email}, #{phone_number}, #{address}, #{enabled}")
+	@Insert("insert into member(id,password, enabled) values(#{id},#{password}, #{enabled})")
 	public int insertUser(MemberVO memberVO);
 
-	@Insert("insert into AUTHORITIES (role,AUTHORITY,member_id) values(#{role},'ROLE_USER', #{member_id})")
+	@Insert("insert into authorities (authority ,member_id) values('ROLE_USER', #{id})")
 	public void insertAuthorities(MemberVO memberVO);
 
 	

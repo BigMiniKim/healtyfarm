@@ -17,8 +17,6 @@ import lombok.extern.log4j.Log4j;
 @ToString
 public class AuthVO {
 	
-	private int role;
-
 	private String authority;
 	
 	private String member_id;

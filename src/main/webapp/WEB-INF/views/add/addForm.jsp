@@ -18,7 +18,7 @@
 <form:form name="frmMember" action="${addUserUrl}" method="POST">
     <p>
         <label for="id">아이디</label>
-        <input type="text"  name="username" />
+        <input type="text"  name="id" />
     </p>
     <p>
         <label for="password">비밀번호</label>

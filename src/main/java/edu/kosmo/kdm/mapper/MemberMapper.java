@@ -18,7 +18,7 @@ public interface MemberMapper {
 	   public MemberVO readUser(String id);
 	   
 	
-	  @Select("select id,case when role='0' then 'ROLE_ADMIN' else  'ROLE_USER' end authority from authorities where id = #{id}")
+	 @Select("select id,case when role='0' then 'ROLE_ADMIN' else  'ROLE_USER' end authority from authorities where id = #{id}")
 	   public List<AuthVO> readAuthority(String id);
 	  
 

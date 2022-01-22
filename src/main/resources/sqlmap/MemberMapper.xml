@@ -3,32 +3,27 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.kosmo.kdm.mapper MemberMapper">
+<mapper namespace="edu.kosmo.kdm.mapper.MemberMapper">
 
-	<resultMap id="MemberMap" type="edu.kosmo.kdm.vo.MemberVO">
+	<resultMap id="memberMap" type="edu.kosmo.kdm.vo.MemberVO">
 	    <result property="id" column="id"/>
 	    <result property="password" column="password"/>
-	    <result property="resident_registration_number" column="resident_registration_number"/>
-	    <result property="name" column="name"/>
-	    <result property="email" column="email"/>
-	    <result property="phone_number" column="phone_number"/>
-	    <result property="address" column="address"/>
-	    
-	    <result property="enabled" column="enabled"/>
+	 	    <result property="enabled" column="enabled"/>
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 	
 	<resultMap id="authMap" type="edu.kosmo.kdm.vo.AuthVO">
-		
-		<result property="role" column="role"/>
+	
 		<result property="authority" column="authority"/>
 		<result property="member_id" column="member_id"/>
 		
 	</resultMap>
 	
 	<select id="getUser" resultMap="memberMap">
-		select * from member , authorities  
-		where member.id = authorities.member_id and members.id = ${id}
+	
+			select * from member , authorities
+		where member.id = authorities.member_id and member.id = #{id}
+		
 	</select>
 	
 

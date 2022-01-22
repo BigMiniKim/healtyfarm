@@ -21,11 +21,7 @@ public class MemberVO {
 	
 	private String id;
 	private String password;
-	private int resident_registration_number;
-	private String name;
-	private String email;
-	private int phone_number;
-	private String address;
+
 	private int enabled;
 	
 	private List<AuthVO> authList;
