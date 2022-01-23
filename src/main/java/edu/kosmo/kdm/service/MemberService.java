@@ -20,16 +20,16 @@ public class MemberService {
 	private BCryptPasswordEncoder passEncoder;
 
 	@Inject
-	private MemberMapper userMapper;
-
+	private MemberMapper memberMapper;
+	
 	@Transactional(rollbackFor = Exception.class)
-	public void addUser(MemberVO memberVO) {
+	public void addMember(MemberVO memberVO) {
 		String password = memberVO.getPassword();
 		String encode = passEncoder.encode(password);
 
 		memberVO.setPassword(encode);
 
-		userMapper.insertUser(memberVO);
-		userMapper.insertAuthorities(memberVO);
+		memberMapper.insertMember(memberVO);
+		memberMapper.insertAuthorities(memberVO);
 	}
 }

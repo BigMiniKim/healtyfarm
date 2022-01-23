@@ -56,8 +56,15 @@ public class HomeController {
 	@GetMapping("/login/loginForm")
 	public String loginForm() {
 		log.info("Welcome Login Form");
-		return "login/loginForm2";
+		return "login/loginForm";
 	}
+	
+	@GetMapping("/rest/ajaxList")
+	public void board() {
+		log.info("restBoard ...");
+	}
+	
+	
 	
 	@RequestMapping(value = "/loginInfo", method = RequestMethod.GET)
 	public String loginInfo(Principal principal,Model model) {

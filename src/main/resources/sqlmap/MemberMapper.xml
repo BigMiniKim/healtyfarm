@@ -14,7 +14,7 @@
 
 	<resultMap id="authMap" type="edu.kosmo.kdm.vo.AuthVO">
 			<result property="member_id" column="member_id" />
-				<result property="role" column="role" />
+			
 		<result property="authority" column="authority" />
 	
 	</resultMap>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.kosmo.kdm.mapper.BoardMapper">
+	
+	<resultMap id="boardMap" type="edu.kosmo.kdm.vo.BoardVO">
+	<result property="id" column="id"/>
+	
+</resultMap>
+	
+	<resultMap id="replyMap" type ="edu.kosmo.kdm.vo.ReplyVO">
+	<result property="id" column="id"/>
+	<result property="bgroup" column="bgrup"/>
+	<result property="step" column="step"/>
+	
+	<result property="board_id" column="biard_id"/>
+	</resultMap>
+	
+	
+	<select id="getList" resultMap="boardMap">
+	
+			select * from board, reply where board.id =reply.board_id  order by bgroup desc, step asc and board.id = #{id}
+		
+	</select>
+</mapper>

@@ -28,6 +28,8 @@
  	[<a href="<c:url value="/add/addForm" />">회원가입</a>]
     [<a href="<c:url value="/user/userHome" />">유저 홈</a>]
     [<a href="<c:url value="/admin/adminHome" />">관리자 홈</a>]
+    
+    <a href="<c:url value="/rest/board" />">게시판</a>]
 </h3>
 </body>
 </html>

@@ -17,17 +17,17 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 
 	@Inject
-	private MemberService userService;
+	private MemberService memberService;
 
 	@GetMapping("/add/addForm")
-	public void userForm() {
-		log.info("Welcome userForm");
+	public void memberForm() {
+		log.info("Welcome memberForm");
 	}
 
-	@PostMapping("/add/addUser")
-	public String addUser(MemberVO membervo) {
+	@PostMapping("/add/addMember")
+	public String addMember(MemberVO membervo) {
 		log.info("post resister");
-		userService.addUser(membervo);
+		memberService.addMember(membervo);
 
 		return "redirect:/";
 	}
