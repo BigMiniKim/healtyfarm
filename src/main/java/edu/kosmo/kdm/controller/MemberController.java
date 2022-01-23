@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import edu.kosmo.kdm.service.UserService;
+import edu.kosmo.kdm.service.MemberService;
 import edu.kosmo.kdm.vo.MemberVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 
 	@Inject
-	private UserService userService;
+	private MemberService userService;
 
 	@GetMapping("/add/addForm")
 	public void userForm() {

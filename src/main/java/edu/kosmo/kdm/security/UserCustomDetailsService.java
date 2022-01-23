@@ -31,7 +31,7 @@ public class UserCustomDetailsService implements UserDetailsService  {
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		
 		log.warn("Load User By MemberVO number: " + id);
-		MemberVO vo = memberMapper.getUser(id);
+		MemberVO vo = memberMapper.getMember(id);
 
 		log.warn("queried by UserVO mapper: " + vo);
 

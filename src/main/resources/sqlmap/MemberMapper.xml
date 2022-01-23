@@ -6,25 +6,25 @@
 <mapper namespace="edu.kosmo.kdm.mapper.MemberMapper">
 
 	<resultMap id="memberMap" type="edu.kosmo.kdm.vo.MemberVO">
-	    <result property="id" column="id"/>
-	    <result property="password" column="password"/>
-	 	    <result property="enabled" column="enabled"/>
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="enabled" column="enabled" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
-	
+
 	<resultMap id="authMap" type="edu.kosmo.kdm.vo.AuthVO">
+			<result property="member_id" column="member_id" />
+				<result property="role" column="role" />
+		<result property="authority" column="authority" />
 	
-		<result property="authority" column="authority"/>
-		<result property="member_id" column="member_id"/>
-		
 	</resultMap>
-	
-	<select id="getUser" resultMap="memberMap">
-	
-			select * from member , authorities
+
+	<select id="getMember" resultMap="memberMap">
+
+		select * from member , authorities
 		where member.id = authorities.member_id and member.id = #{id}
-		
+
 	</select>
-	
+
 
 </mapper>
