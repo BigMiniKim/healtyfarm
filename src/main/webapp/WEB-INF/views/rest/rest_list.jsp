@@ -53,14 +53,14 @@
       </tr>
       <c:forEach var="board" items="${list}" >
          <tr>
-            <td>${board.bid}</td>
-            <td>${board.bname}</td>
+            <td>${board.id}</td>
+            <td>${id}</td>
             <td>
-               <c:forEach begin="1" end="${board.bindent}">-</c:forEach>
-               <a href="${pageContext.request.contextPath}/rest/board/${board.bid}">${board.btitle}</a></td>
+               <c:forEach begin="1" end="${board.indent}">-</c:forEach>
+               <a href="${pageContext.request.contextPath}/rest/board/${board.id}">${board.title}</a></td>
             <td>${board.bdate}</td>
-            <td>${board.bhit}</td>
-            <td><a class="a-delete" data-bid='${board.bid}' href="${pageContext.request.contextPath}/rest/board/${board.bid}">삭제</a></td>
+            <td>${board.hit}</td>
+            <td><a class="a-delete" data-bid='${board.id}' href="${pageContext.request.contextPath}/rest/board/${board.id}">삭제</a></td>
          </tr>
       </c:forEach>
       <tr>

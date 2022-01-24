@@ -33,7 +33,7 @@ public class UserCustomDetailsService implements UserDetailsService  {
 		log.warn("Load User By MemberVO number: " + id);
 		MemberVO vo = memberMapper.getMember(id);
 
-		log.warn("queried by UserVO mapper: " + vo);
+		log.warn("queried by MemberVO mapper: " + vo);
 
 		return vo == null ? null : new MemberCustom(vo);		
 	}
