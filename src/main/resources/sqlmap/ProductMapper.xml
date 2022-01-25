@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.kosmo.kdm.mapper.ProductMapper">
+
+	<resultMap id="productMap" type="edu.kosmo.kdm.vo.ProductVO">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="stock" column="stock" />
+		<result property="price" column="price" />
+		<result property="category_code" column="category_code" />
+		
+	</resultMap>
+
+	<resultMap id="categoryMap" type="edu.kosmo.kdm.vo.CategoryVO">
+			<result property="code" column="code" />
+			
+		<result property="category_name" column="category_name" />
+	
+	</resultMap>
+
+	<select id="registerProduct" resultMap="productMap">
+
+		select * from product , category
+		where product.category_code = category.code and product.category_code = #{code}
+
+	</select>
+
+
+</mapper>

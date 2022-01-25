@@ -49,15 +49,7 @@ public class RestBoardController {
 
 	      return list;
 	   }
-	   
-	   @GetMapping("/board/example")
-	   public List<BoardVO> example() {
-		   log.info("/board/example");
-		   
-	     List<BoardVO> list = boardService.getList();
-
-	      return list;
-	   }
+	 
 	   
 	
 	
