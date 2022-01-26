@@ -49,15 +49,15 @@
 
                           $(result).each(function(){                                                          
                              htmls += '<tr>';
-                             htmls += '<td>'+ this.bid + '</td>';
-                             htmls += '<td>'+ this.bname + '</td>';
+                             htmls += '<td>'+ this.id + '</td>';
+                             htmls += '<td>'+ this.member_id + '</td>';
                              htmls += '<td>'
-                           for(var i=0; i < this.bindent; i++) { //for 문은 시작하는 숫자와 종료되는 숫자를 적고 증가되는 값을 적어요. i++ 은 1씩 증가 i+2 는 2씩 증가^^
+                           for(var i=0; i < this.indent; i++) { //for 문은 시작하는 숫자와 종료되는 숫자를 적고 증가되는 값을 적어요. i++ 은 1씩 증가 i+2 는 2씩 증가^^
                               htmls += '-'   //<c:forEach begin="1" end="${board.bindent}">-</c:forEach>
                           }
-                             htmls += '<a href="${pageContext.request.contextPath}/content_view?id=' + this.id + '">' + this.btitle + '</a></td>';
+                             htmls += '<a href="${pageContext.request.contextPath}/content_view?id=' + this.id + '">' + this.title + '</a></td>';
                               htmls += '<td>'+ this.bdate + '</td>'; 
-                             htmls += '<td>'+ this.bhit + '</td>';   
+                             htmls += '<td>'+ this.hit + '</td>';   
                              htmls += '</tr>';                                                      
                          });   //each end
 
