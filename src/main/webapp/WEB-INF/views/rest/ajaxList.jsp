@@ -55,7 +55,7 @@
                            for(var i=0; i < this.bindent; i++) { //for 문은 시작하는 숫자와 종료되는 숫자를 적고 증가되는 값을 적어요. i++ 은 1씩 증가 i+2 는 2씩 증가^^
                               htmls += '-'   //<c:forEach begin="1" end="${board.bindent}">-</c:forEach>
                           }
-                             htmls += '<a href="${pageContext.request.contextPath}/content_view?bid=' + this.bid + '">' + this.btitle + '</a></td>';
+                             htmls += '<a href="${pageContext.request.contextPath}/content_view?id=' + this.id + '">' + this.btitle + '</a></td>';
                               htmls += '<td>'+ this.bdate + '</td>'; 
                              htmls += '<td>'+ this.bhit + '</td>';   
                              htmls += '</tr>';                                                      

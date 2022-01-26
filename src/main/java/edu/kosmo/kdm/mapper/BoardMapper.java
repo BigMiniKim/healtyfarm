@@ -1,17 +1,27 @@
 package edu.kosmo.kdm.mapper;
 
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import edu.kosmo.kdm.vo.BoardVO;
-import edu.kosmo.kdm.vo.MemberVO;
+
 
 @Mapper
 public interface BoardMapper {
-	public BoardVO getlist(int id);	
+
    List<BoardVO> getList();
-  
+   BoardVO read(int bid);
+   void insert(BoardVO board);
+   void delete(int bid);
+   void update( BoardVO board);
+   void updateHit(int bid);
+   
+   
+   //댓글관련
+   void updateShape(BoardVO boardVO);
+   void insertReply(BoardVO boardVO);
    
 
 }

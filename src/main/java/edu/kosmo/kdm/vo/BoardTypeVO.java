@@ -15,16 +15,8 @@ import lombok.extern.log4j.Log4j;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class BoardVO {
+public class BoardTypeVO {
 	private int id;
-	private String title;
-	private String content;
-	private Timestamp bdate;
-	private int hit;
-	private int bgroup;
-	private int step;
-	private int indent;
-	private String member_id;
-	private int boardtype_id;
+	private String name;
 
 }

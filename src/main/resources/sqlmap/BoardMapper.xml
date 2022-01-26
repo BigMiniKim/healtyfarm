@@ -6,21 +6,69 @@
 	
 	<resultMap id="boardMap" type="edu.kosmo.kdm.vo.BoardVO">
 	<result property="id" column="id"/>
-	
-</resultMap>
-	
-	<resultMap id="replyMap" type ="edu.kosmo.kdm.vo.ReplyVO">
-	<result property="id" column="id"/>
+	<result property="title" column="title"/>
+	<result property="content" column="content"/>
+	<result property="bdate" column="bdate"/>
+	<result property="hit" column="hit"/>
 	<result property="bgroup" column="bgrup"/>
 	<result property="step" column="step"/>
+	<result property="indent" column="indent"/>
+	<result property="member_id" column="member_id"/>
+	<result property="boardtype_id" column="boardtype_id"/>
+</resultMap>
 	
-	<result property="board_id" column="biard_id"/>
-	</resultMap>
-	
-	
+		
 	<select id="getList" resultMap="boardMap">
 	
-			select * from board, reply where board.id =reply.board_id  order by bgroup desc, step asc and board.id = #{id}
+			select * from board order by bgroup desc, step asc
 		
 	</select>
+	
+
+	
+	<select id="read" resultType="edu.kosmo.kdm.vo.BoardVO">
+	<![CDATA[
+		select * from board where id = #{id}
+	]]>
+	</select>
+	
+	<insert id="insert" >
+	<![CDATA[
+	
+	insert into board (id, title, content, hit, bgroup, step, indent) values (board_seq.nextval, #{title}, #{content}, 0, board_seq.currval, 0, 0)
+		
+	]]>
+	</insert>
+	
+	
+	<update id="updateShape" >
+	<![CDATA[
+		update board set step = step+1 where bgroup = #{bgroup} and step > #{step}
+	]]>
+	</update>
+	
+	<insert id="insertReply" >
+	<![CDATA[
+		insert into board (id, title, content, bgroup, step, indent) values (board_seq.nextval, #{title}, #{content}, #{bgroup}, #{step}+1, #{indent}+1)
+	]]>
+	</insert>
+	
+	<delete id="delete" >
+	<![CDATA[
+		delete from board where id = #{id}
+	]]>
+	</delete>
+	
+	<update id="update" >
+	<![CDATA[
+		update board set title = #{title}, content = #{content} where id = #{id}
+	]]>
+	</update>
+	
+	<update id="updateHit" >
+	<![CDATA[
+		update board set hit = hit +1 where id = #{id}
+	]]>
+	</update>
+	
 </mapper>

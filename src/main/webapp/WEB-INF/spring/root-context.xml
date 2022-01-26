@@ -24,6 +24,11 @@
       <property name="dataSource" ref="dataSource"/>
       <property name="mapperLocations" value="classpath:/sqlmap/*.xml" /> 
    </bean>
+   
+    <!-- 1번 방식 사용을 위한 sqlSession -->
+   <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+      <constructor-arg index="0" ref="sqlSessionFactory" />
+   </bean>
       
    <!--    Mapper Interface -->
    <mybatis-spring:scan base-package="edu.kosmo.kdm.mapper"/> 
