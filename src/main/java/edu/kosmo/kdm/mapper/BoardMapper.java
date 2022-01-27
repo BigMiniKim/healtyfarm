@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import edu.kosmo.kdm.page.Criteria;
 import edu.kosmo.kdm.vo.BoardVO;
 
 
@@ -12,16 +13,18 @@ import edu.kosmo.kdm.vo.BoardVO;
 public interface BoardMapper {
 
    List<BoardVO> getList();
-   BoardVO read(int bid);
+   BoardVO read(int id);
    void insert(BoardVO board);
-   void delete(int bid);
+   void delete(int id);
    void update( BoardVO board);
-   void updateHit(int bid);
+   void updateHit(int id);
    
    
    //댓글관련
    void updateShape(BoardVO boardVO);
    void insertReply(BoardVO boardVO);
    
-
+ //페이징 처리 관련
+ 	int getTotalCount();
+ 	List<BoardVO> getListWithPaging(Criteria criteria);
 }

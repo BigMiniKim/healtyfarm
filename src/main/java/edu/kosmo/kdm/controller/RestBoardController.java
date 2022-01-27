@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -113,7 +114,26 @@ public class RestBoardController {
 		      return entity;
 
 		   }
-	   
+	   @GetMapping("/board/write_view")
+		public String write_view() {
+			
+			log.info("write_view()...");
+					
+			return "board/write_view";
+				
+				
+			}
+		
+		@PostMapping("/board/write")
+		public String write(BoardVO boardVO) {
+			
+			log.info("write()...");
+			boardService.register(boardVO);
+			
+			return "redirect:list2";
+				
+				
+			}
 	 
 	   
 	

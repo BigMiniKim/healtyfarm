@@ -5,12 +5,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>메이페이지</title>
 </head>
 
 <body>
-
+ 
 <h1>메인페이지</h1>
 
 <sec:authorize access="isAnonymous()">
@@ -29,7 +31,7 @@
     [<a href="<c:url value="/user/userHome" />">유저 홈</a>]
     [<a href="<c:url value="/admin/adminHome" />">관리자 홈</a>]
     
-    <a href="<c:url value="/rest/board" />">게시판</a>]
+    [<a href="<c:url value="/rest/board" />">게시판</a>]
 </h3>
 </body>
 </html>

@@ -71,4 +71,28 @@
 	]]>
 	</update>
 	
+		<select id="getTotalCount" resultType="int">
+   <![CDATA[
+      select count(*) from board
+   ]]>
+	</select>
+
+	<!-- 열개씩 뽑아내는거 한페이지에 출력해주는 역할 -->
+	<select id="getListWithPaging"
+		resultType="edu.kosmo.kdm.vo.BoardVO">
+   <![CDATA[
+               SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             board 
+                         order by bgroup desc, step asc   
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      
+   
+   ]]>
+	</select>
+	
 </mapper>
