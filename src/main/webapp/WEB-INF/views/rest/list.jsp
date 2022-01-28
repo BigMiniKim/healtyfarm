@@ -21,16 +21,16 @@
 			<c:forEach var="board" items="${boardList}">
 			<tr>
 			
-				<td>${board.bid}</td>
-				<td>${board.bname}</td>
+				<td>${board.id}</td>
+				<td>${board.name}</td>
 				<td>
-					<c:forEach begin="1" end="${board.bindent}"> [Re] </c:forEach>
- 						<a href="content_view?bid=${board.bid}">${board.btitle}</a>
+					<c:forEach begin="1" end="${board.indent}"> [Re] </c:forEach>
+ 						<a href="content_view?id=${board.id}">${board.title}</a>
 				</td>
 				
 				
-				<td>${board.bdate}</td>
-				<td>${board.bhit}</td>
+				<td>${board.date}</td>
+				<td>${board.hit}</td>
 				
 			</tr>	
 			</c:forEach>

@@ -89,7 +89,7 @@
             <td> <textarea rows="10" id="content" name="content" >${content_view.content}</textarea></td>
          </tr>
          <tr >
-            <td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; <a href="list">목록보기</a> &nbsp;&nbsp; <a href="delete?id=${content_view.bid}">삭제</a> &nbsp;&nbsp; <a href="reply_view?id=${content_view.id}">답변</a></td>
+            <td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; <a href="/ex/rest/board/">목록보기</a> &nbsp;&nbsp; <a href="delete?id=${content_view.id}">삭제</a> &nbsp;&nbsp; <a href="reply_view?id=${content_view.id}">답변</a></td>
          </tr>
       </form>
    </table>

@@ -67,7 +67,7 @@
 	
 	<update id="updateHit" >
 	<![CDATA[
-		update board set hit = hit +1 where id = #{id}
+		update board set hit = hit + 1 where id = #{id}
 	]]>
 	</update>
 	
