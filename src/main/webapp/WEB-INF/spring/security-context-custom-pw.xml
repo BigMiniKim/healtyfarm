@@ -13,6 +13,8 @@
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
         <!-- <intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')" /> -->
         
+        <intercept-url pattern="/board/**" access="permitAll" />
+         <intercept-url pattern="/**" access="permitAll" />
         <form-login login-page="/login/loginForm"
                     default-target-url="/"
                     authentication-failure-url="/login/loginForm?error"

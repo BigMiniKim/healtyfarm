@@ -3,6 +3,8 @@ package edu.kosmo.kdm.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.kosmo.kdm.service.ProductService;
 import edu.kosmo.kdm.vo.ProductVO;
@@ -25,6 +27,9 @@ public class ProductController {
 		
 		productService.registerProduct(productVO);
 	}
-	
+	@RequestMapping(value = "/goods/register", method = RequestMethod.GET)
+	public void getGoodsRegister() throws Exception {
+	 log.info("get goods register");
+	}
 	
 }

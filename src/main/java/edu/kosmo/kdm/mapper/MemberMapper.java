@@ -16,11 +16,13 @@ public interface MemberMapper {
 	
 	@Insert("insert into member(id,password, enabled) values(#{id},#{password}, #{enabled})")
 	public int insertMember(MemberVO memberVO);
-
-	@Insert("insert into authorities (authority ,member_id) values( 'ROLE_USER', #{id})")
+	
+	@Select("select member_id , case when member_id = 'admin' then 'ROLE_ADMIN' else 'ROLE_USER' end authority from authorities where member_id = #{member_id})")
+		public List<AuthVO> readAuthority(String id);
+	
+	@Insert("insert into authorities (authority ,member_id) values( 'ROLE_ADMIN', #{id})")
 	public void insertAuthorities(MemberVO memberVO);
 
-	@Select("select id,case when id='admin' then 'ROLE_ADMIN' else  'ROLE_USER' end authority from authorities where id = #{id}")
-	 public List<AuthVO> readAuthority(String id);
+
 	
 }

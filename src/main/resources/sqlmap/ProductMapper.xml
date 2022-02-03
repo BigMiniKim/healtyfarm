@@ -20,6 +20,12 @@
 		<result property="category_name" column="category_name" />
 	
 	</resultMap>
+<select id="category" resultType="edu.kosmo.kdm.CategoryVO">
+ select
+  level, category_name, code, code_ref
+ from goods_category
+     start with code_ref is null connect by prior code = code_ref
+</select>
 
 	<select id="registerProduct" resultMap="productMap">
 
