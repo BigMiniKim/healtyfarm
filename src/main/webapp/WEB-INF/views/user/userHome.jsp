@@ -15,12 +15,13 @@
 
 <p>principal: <sec:authentication property="principal"/></p>
 
-<p>memberVO: <sec:authentication property="principal.member"/></p>
+<%-- <p>memberVO: <sec:authentication property="principal.member.id"/></p>--%>
 <%-- <p>사용자이름: <sec:authentication property="principal.emp.ename"/></p>
 <p>사용자월급: <sec:authentication property="principal.emp.sal"/></p>
 <p>사용자입사일자: <sec:authentication property="principal.emp.hiredate"/></p> --%>
 
 <p><a href="<c:url value="/" />">홈</a></p>
+<a href="<c:url value="list" />">게시판</a>
 
 </body>
 </html>

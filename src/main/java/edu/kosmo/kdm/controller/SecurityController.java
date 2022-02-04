@@ -57,6 +57,12 @@ public class SecurityController {
 			model.addAttribute("msg","ACCESS Denied(403 에러)");	
 			
 		}
-	
+		@GetMapping("/board")
+		public String board() {
+		
+			System.out.println("logined board");
+			return "/board";
+		}
+		
 }
 

@@ -31,5 +31,6 @@ public class MemberService {
 
 		memberMapper.insertMember(memberVO);
 		memberMapper.insertAuthorities(memberVO);
+		
 	}
 }

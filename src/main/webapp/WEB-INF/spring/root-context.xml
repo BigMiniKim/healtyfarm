@@ -32,6 +32,7 @@
       
    <!--    Mapper Interface -->
    <mybatis-spring:scan base-package="edu.kosmo.kdm.mapper"/> 
+     
       
       
 </beans>

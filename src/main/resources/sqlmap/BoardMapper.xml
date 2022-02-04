@@ -13,8 +13,7 @@
 	<result property="bgroup" column="bgrup"/>
 	<result property="step" column="step"/>
 	<result property="indent" column="indent"/>
-	<result property="member_id" column="member_id"/>
-	<result property="boardtype_id" column="boardtype_id"/>
+	
 </resultMap>
 	
 	<resultMap id="memberMap" type="edu.kosmo.kdm.vo.MemberVO">
@@ -23,6 +22,13 @@
 		<result property="enabled" column="enabled" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
+	
+	<resultMap id="boardTypeMap" type="edu.kosmo.kdm.vo.BoardTypeVO">
+			<result property="boardtype_id" column="id" />
+			
+		<result property="bordtype_name" column="name" />
+	
+	</resultMap>
 		
 	<select id="getList" resultMap="boardMap">
 	
@@ -30,7 +36,9 @@
 		
 	</select>
 	
-
+	<select id="getBoardType" resultMap="boardTypeMap">
+	select * from board, boardtype where board.boardtype_id = boardtype.id and board.boardtype_id = #{boardtype_id}
+	</select>
 	
 	<select id="read" resultType="edu.kosmo.kdm.vo.BoardVO">
 	<![CDATA[
@@ -41,7 +49,7 @@
 	<insert id="insert" >
 	<![CDATA[
 	
-	insert into board (id, title, content, hit, bgroup, step, indent, member_id) values (board_seq.nextval, #{title},  #{content}, 0, board_seq.currval, 0, 0 , #{principal.id})
+	insert into board (id, title, content, hit, bgroup, step, indent, member_id) values (board_seq.nextval, #{title},  #{content}, 0, board_seq.currval, 0, 0, #{member_id} )
 		
 	]]>
 	</insert>
@@ -67,7 +75,7 @@
 	
 	<update id="update" >
 	<![CDATA[
-		update board set title = #{title}, content = #{content}, member_id ={member_id} where id = #{id}
+		update board set title = #{title}, content = #{content},member_id=#{member_id} where id = #{id}
 	]]>
 	</update>
 	

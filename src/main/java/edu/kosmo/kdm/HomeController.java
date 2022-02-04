@@ -47,6 +47,12 @@ public class HomeController {
 		log.info("userHome ...");
 	}
 	
+	
+	@GetMapping("/board/list")
+	public void userlist() {
+		log.info("userlist ...");
+	}
+	
 	@GetMapping("/admin/adminHome")
 	public void adminHome() {
 		log.info("adminHome ...");

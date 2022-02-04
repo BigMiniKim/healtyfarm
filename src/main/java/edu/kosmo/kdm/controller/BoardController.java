@@ -1,9 +1,9 @@
 package edu.kosmo.kdm.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import javax.inject.Inject;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +26,7 @@ public class BoardController {
 	
 
 	//http://localhost:8282/ex/content_view?bid=27
-	@GetMapping("board/content_view")
+	@GetMapping("user/content_view")
 	public String content_view(BoardVO boardVO, Model model) {
 		
 		log.info("content_view()...");
@@ -40,7 +40,7 @@ public class BoardController {
 			
 			
 		}
-	@GetMapping("board/write_view")
+	@GetMapping("user/write_view")
 	public String write_view() {
 		
 		log.info("write_view()...");
@@ -50,17 +50,20 @@ public class BoardController {
 			
 		}
 	
-	@PostMapping("board/write")
+	@PostMapping("/user/write")
 	public String write(BoardVO boardVO) {
-		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String user_id = auth.getName();
+
 		log.info("write()...");
+		boardVO.setMember_id(user_id);
 		boardService.register(boardVO);
 		
 		return "redirect:list";
 			
 			
 		}
-	@GetMapping("board/reply_view")
+	@GetMapping("user/reply_view")
 	public String reply_view(BoardVO boardVO, Model model) {
 		
 		log.info("reply_view()...");
@@ -72,11 +75,12 @@ public class BoardController {
 			
 		}
 	
-	@PostMapping("board/reply")
+	@PostMapping("user/reply")
 	public String reply(BoardVO boardVO, Model model) {
-		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String user_id = auth.getName();
 		log.info("reply()...");
-		
+		boardVO.setMember_id(user_id);
 		 boardService.registerReply(boardVO);
 		
 		return "redirect:list";
@@ -84,7 +88,7 @@ public class BoardController {
 			
 		}
 	
-	@GetMapping("board/delete")
+	@GetMapping("user/delete")
 	public String delete(BoardVO boardVO, Model model) {
 		
 		log.info("delete()...");
@@ -93,11 +97,13 @@ public class BoardController {
 		
 		return "redirect:list";
 	}
-	@PostMapping("board/modify")
+	@PostMapping("user/modify")
 	public String modify(BoardVO boardVO, Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String user_id = auth.getName();
 		
 		log.info("modify()...");
-		
+		boardVO.setMember_id(user_id);
 		 boardService.modify(boardVO);
 		
 		return "redirect:list";
@@ -105,8 +111,8 @@ public class BoardController {
 			
 		}
 	// /http:/localhost:8282/ex/list2?pageNum1&amount=10
-	@GetMapping("board/list")
-	public String list2 (Criteria cri,Model model) {
+	@GetMapping("/user/list")
+	public String list (Criteria cri,Model model) {
 		
 		log.info("list()...");
 		log.info("Criteira" + cri);

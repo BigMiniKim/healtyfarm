@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html">
 <html>
 <head>
@@ -8,7 +11,7 @@
 </head>
 <body>
    <table id="list-table" width="500" cellpadding="0" cellspacing="0" border="1">
-      <form action="reply" method="post">
+      <form:form action="reply" method="post">
          <input type="hidden" name="id" value="${reply_view.id}">
          <input type="hidden" name="bgroup" value="${reply_view.bgroup}">
          <input type="hidden" name="step" value="${reply_view.step}">
@@ -36,7 +39,7 @@
          <tr >
             <td colspan="2"> <input type="submit" value="답변"> &nbsp;&nbsp; <a href="list">목록</a></td>
          </tr>
-      </form>
+      </form:form>
    </table>   
       
 

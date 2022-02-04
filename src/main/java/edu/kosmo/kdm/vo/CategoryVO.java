@@ -17,9 +17,9 @@ import lombok.extern.log4j.Log4j;
 @ToString
 public class CategoryVO {
 	private String code;
-
-	private String category_name;
 	
+	private String category_name;
+	private String code_ref;
 	
 	
 

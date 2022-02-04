@@ -18,14 +18,9 @@
 			<result property="code" column="code" />
 			
 		<result property="category_name" column="category_name" />
-	
+	<result property="code_ref" column="code_ref" />
 	</resultMap>
-<select id="category" resultType="edu.kosmo.kdm.CategoryVO">
- select
-  level, category_name, code, code_ref
- from goods_category
-     start with code_ref is null connect by prior code = code_ref
-</select>
+
 
 	<select id="registerProduct" resultMap="productMap">
 
@@ -34,5 +29,10 @@
 
 	</select>
 
-
+<select id="categoryRegister" resultMap="categoryMap">
+ select
+  level, cateName, cateCode, cateCodeRef
+ from goods_category
+     start with cateCodeRef is null connect by prior cateCode = cateCodeRef
+</select>
 </mapper>

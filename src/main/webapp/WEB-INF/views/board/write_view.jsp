@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,10 +12,10 @@
 </head>
 <body>
 <table width="500" cellpadding="0" cellspacing="0" border="1">
-		<form action="${pageContext.request.contextPath}/board/write" method="post">
+		<form:form action="write" method="post">
 			<tr>
-				<td> 이름 </td>
-				<td> <input id = "member_id" name="member_id" type="hidden" size="50" value="<sec:authentication property="principal.member.id"/>"/> </td>
+				<td> 이름</td>
+				<td> <input id = "member_id" name="member_id" type="hidden" size="50" value=" " /> </td>
 			</tr>
 			<tr>
 				<td> 제목 </td>
@@ -24,7 +28,7 @@
 			<tr >
 				<td colspan="2"> <input type="submit" value="입력"> &nbsp;&nbsp; <a href="list">목록보기</a></td>
 			</tr>
-		</form>
+		</form:form>
 	</table>
 	
 </body>

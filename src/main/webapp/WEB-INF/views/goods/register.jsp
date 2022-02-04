@@ -1,109 +1,93 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
-	<title>회원가입</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>상품등록</title>
 </head>
 
 <body>
 
 <div class="admin_content_main">
-                    	<form action="/goods/goodsEnroll" method="post" id="enrollForm">
+                    	<form:form action="${pageContext.request.contextPath}/goods/register" method="get" id="registerForm">
                     		<div class="form_section">
                     			<div class="form_section_title">
-                    				<label>책 제목</label>
+                    				<label>상품 번호</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<input name="bookName">
+                    				<input name="product_id" value="0">
                     			</div>
                     		</div>
                     		<div class="form_section">
                     			<div class="form_section_title">
-                    				<label>작가</label>
+                    				<label>상품명</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<input name="authorId" value="0">
+                    				<input name="product_name" >
                     			</div>
                     		</div>            
                     		<div class="form_section">
                     			<div class="form_section_title">
-                    				<label>출판일</label>
+                    				<label>재고량</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<input name="publeYear">
+                    				<input name="stock" value="0">
                     			</div>
                     		</div>            
                     		<div class="form_section">
                     			<div class="form_section_title">
-                    				<label>출판사</label>
+                    				<label>단가</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<input name="publisher">
+                    				<input name="price" value="0">
                     			</div>
                     		</div>             
                     		<div class="form_section">
                     			<div class="form_section_title">
-                    				<label>책 카테고리</label>
+                    				<label>카테고리</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<input name="cateCode">
+                    				<input name="categoryCode">
                     			</div>
-                    		</div>          
+                    		</div>  
+                    		
                     		<div class="form_section">
                     			<div class="form_section_title">
-                    				<label>상품 가격</label>
+                    				<label>상품소개</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<input name="bookPrice" value="0">
+                    				
+                    				<textarea id="productDes" name = "productDes"></textarea>
+                    			<script>
+                    			ClassicEditor
+                    			.create(document.querySelector('#productDes'))
+                    			.catch(error=>{
+                    				console.error(error);
+                    			});
+</script>
+                    			
                     			</div>
-                    		</div>               
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 재고</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookStock" value="0">
-                    			</div>
-                    		</div>          
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 할인율</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookDiscount" value="0">
-                    			</div>
-                    		</div>          		
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>책 소개</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookIntro">
-                    			</div>
-                    		</div>        		
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>책 목차</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookContents">
-                    			</div>
-                    		</div>
-                   		</form>
+                    		</div>  
+                    		
+                   		</form:form>
                    			<div class="btn_section">
                    				<button id="cancelBtn" class="btn">취 소</button>
-	                    		<button id="enrollBtn" class="btn enroll_btn">등 록</button>
+	                    		<button id="registerBtn" class="btn register_btn">등 록</button>
 	                    	</div> 
                     </div>  
                     <script>
 
-	let enrollForm = $("#enrollForm")
+	var registerForm = $("#registerForm")
 	
 /* 취소 버튼 */
 $("#cancelBtn").click(function(){
@@ -113,11 +97,11 @@ $("#cancelBtn").click(function(){
 });
 
 /* 상품 등록 버튼 */
-$("#enrollBtn").on("click",function(e){
+$("#registerBtn").on("click",function(e){
 	
 	e.preventDefault();
 	
-	enrollForm.submit();
+	registerForm.submit();
 	
 });
 

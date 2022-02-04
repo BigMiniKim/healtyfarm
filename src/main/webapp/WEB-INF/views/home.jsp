@@ -31,8 +31,9 @@
     [<a href="<c:url value="/user/userHome" />">유저 홈</a>]
     [<a href="<c:url value="/admin/adminHome" />">관리자 홈</a>]
     
-    [<a href="<c:url value="/board/list" />">게시판</a>]
+    [<a href="<c:url value="list" />">게시판</a>]
       [<a href="<c:url value="/goods/register" />">상품등록</a>]
+  
 </h3>
 </body>
 </html>
