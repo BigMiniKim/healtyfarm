@@ -67,10 +67,10 @@
                     			</div>
                     			<div class="form_section_content">
                     				
-                    				<textarea id="productDes" name = "productDes"></textarea>
+                    				<textarea id="detail" name = "detail"></textarea>
                     			<script>
                     			ClassicEditor
-                    			.create(document.querySelector('#productDes'))
+                    			.create(document.querySelector('#detail'))
                     			.catch(error=>{
                     				console.error(error);
                     			});
@@ -87,7 +87,7 @@
                     </div>  
                     <script>
 
-	var registerForm = $("#registerForm")
+	let registerForm = $("#registerForm")
 	
 /* 취소 버튼 */
 $("#cancelBtn").click(function(){

@@ -2,9 +2,10 @@ package edu.kosmo.kdm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kosmo.kdm.service.ProductService;
 import edu.kosmo.kdm.vo.ProductVO;
@@ -21,8 +22,8 @@ public class ProductController {
 	private ProductService productService;
 	
 	//상품등록
-	@GetMapping("/productRegister")
-	public void productRegister(ProductVO productVO) {
+	@PostMapping("/productRegister")
+	public void productRegister(ProductVO productVO, RedirectAttributes rttr) {
 		log.info("register product..." +  productVO);
 		
 		productService.registerProduct(productVO);
