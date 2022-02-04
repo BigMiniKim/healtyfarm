@@ -12,7 +12,7 @@ public interface ProductMapper {
 	
 	public ProductVO registerProeuct(String id);	
 	
-	@Insert("insert into product(id,name, stock, price, category_code) values(#{id},#{name}, #{stock}, #{code)")
+	@Insert("insert into product(id, name, stock, price, detail, category_code) values(#{id}, #{name}, #{stock},#{price},#{detail}, #{code)")
 	public int insertProduct(ProductVO productVO);
 
 	@Insert("insert into category (code , category_name ) values( #{code}, #{category_name})")

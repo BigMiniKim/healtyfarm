@@ -20,6 +20,7 @@ public class ProductVO {
 	private String name;
 	private int stock;
 	private int price;
+	private String detail;
 	private String category_code;
 	
 	

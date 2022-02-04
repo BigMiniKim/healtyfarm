@@ -19,7 +19,7 @@
 <body>
 
 <div class="admin_content_main">
-                    	<form:form action="${pageContext.request.contextPath}/goods/register" method="get" id="registerForm">
+                    	<form:form action="${pageContext.request.contextPath}/productRegister" method="get" id="registerForm">
                     		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>상품 번호</label>
